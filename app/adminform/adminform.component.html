@@ -1,0 +1,62 @@
+<div class="form-container">
+  <h1>Enterprise Form</h1>
+  <form (ngSubmit)="onSubmit()">
+    <label for="enterpriseId">Enterprise Id</label>
+    <input
+      type="text"
+      id="enterpriseId"
+      [(ngModel)]="enterpriseId"
+      name="enterpriseId"
+      required
+      placeholder="Enter Enterprise Id"
+    />
+
+    <label for="emailId">Email Id</label>
+    <input
+      type="email"
+      id="emailId"
+      [(ngModel)]="emailId"
+      name="emailId"
+      required
+      placeholder="Enter Email Id"
+    />
+
+    <label for="domainId">Domain Id</label>
+    <select id="domainId" [(ngModel)]="domainId" name="domainId" required>
+      <option *ngFor="let domain of domainOptions" [value]="domain">
+        {{ domain }}
+      </option>
+    </select>
+
+    <label for="language">Language</label>
+    <select id="language" [(ngModel)]="language" name="language" required>
+      <option *ngFor="let lang of languageOptions" [value]="lang">
+        {{ lang }}
+      </option>
+    </select>
+
+    <label for="versionType">Trial Or Full Version</label>
+    <select
+      id="versionType"
+      [(ngModel)]="versionType"
+      name="versionType"
+      required
+    >
+      <option *ngFor="let version of versionOptions" [value]="version">
+        {{ version }}
+      </option>
+    </select>
+
+    <label for="validityDate">Validity Date</label>
+    <input
+      type="date"
+      id="validityDate"
+      [(ngModel)]="validityDate"
+      name="validityDate"
+      [min]="minDate()"
+      required
+    />
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
